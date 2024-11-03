@@ -12,7 +12,7 @@ const appAssets = [
   './images/sunny_sky.png',
   './images/vein_icon.png',
   'weather.json',
-  'weather.html',
+  'index.html',
   'weather.css',
   'weather.js',
   'weather_sw.js',
