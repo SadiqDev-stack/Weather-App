@@ -1,0 +1,380 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    background: url(./images/cloudy_sky.png) 0 0 no-repeat;
+    background-size: cover;
+    background-attachment: static;
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+    font-family: sans-serif;
+}
+
+.section{
+  width: 100%;
+  height: 100%;
+  display: none/* flex */;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+}
+
+.focusSection{
+  backdrop-filter: blur(5px);
+  background: rgba(255,255,255,0.2);
+}
+
+.searchBar{
+  width: 85%;
+  border: none;
+  background: rgba(255,255,255,0.6);
+  align-self: center;
+  padding: .5rem;
+  margin: 1rem;
+  font-size: 1rem;
+  outline: none;
+}
+
+.cityDisplay{
+  font-size: 2rem;
+  color: white;
+  margin: .2rem;
+  margin-left: 1rem;
+}
+
+.dateDisplay{
+  margin: 1rem;
+  color: white;
+  font-weight: bold;
+}
+
+.focusSection > .tempDisplay{
+  align-self: center;
+  font-size: 6rem;
+  color: white;
+  -webkit-text-stroke: .5px black;
+  margin: 2rem;
+}
+
+.humDisplay{
+  align-self: center; 
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: white;
+ /* -webkit-text-stroke: .3px black*/
+}
+
+
+.forecastDisplay{
+  width: 100%;
+  height: 110px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  align-self: center;
+  margin-top: 1.7rem;
+  color: #515050;
+}
+
+.foreCast{
+  width: 30%;
+  height: 100%;
+  border: none;
+  border-radius: 15px;
+  background: rgba(255,255,255,0.5);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  box-shadow: -.5px -.5px 1px #545454;
+}
+
+.foreCast .emojiDisplay{
+  font-size: 2.5rem;
+}
+
+.foreCast .tempDisplay{
+  font-size: 1rem;
+  color: black;
+}
+
+.foreCast .forecastDay{
+  font-size: .7rem
+}
+
+.foreCast .small{
+  font-size: .6rem
+}
+
+.loadBar{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  color: white;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+  background: rgba(0,0,0,0.8);
+  backdrop-filter: blur(5px)
+}
+
+
+.loader{
+  margin-top: 50%;
+  width: 60px;
+  height: 60px;
+  border: 4px solid white;
+  border-radius: 50%;
+  border-right: none;
+  border-bottom: none;
+  animation: load .5s 0s forwards ease-out infinite;
+}
+
+@keyframes load{
+  to{
+    transform: rotateZ(360deg)
+  }
+}
+
+.loadText{
+  width: 90%;
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.locationAccess{
+  background: black;
+  color: white;
+  align-items: center; 
+  justify-content: space-evenly;
+}
+
+.locationAccess .emojiDisplay{
+  font-size: 10rem
+}
+
+.locationAccess .msg{
+  width: 90%;
+  text-align: center;
+}
+
+.locationAccess .grant{
+  width: 80%;
+  background: #D6054B;
+  font-size: 1rem;
+  padding: .7rem;
+  color: white;
+  border-radius: 15px;
+  border: none;
+}
+
+.locationAccess .skip{
+  position: absolute;
+  bottom: 1.5rem;
+}
+
+.forecastSection{
+  background: rgba(0,0,0,.8);
+}
+
+.forecastSection h2{
+  color: white;
+  align-self: center;
+  margin-bottom: 0rem
+}
+
+.forecastSection .forecastDisplay{
+  width: 90%;
+  height: 70%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-self: center;
+  overflow-y: scroll;
+  grid-gap: 1.5rem;
+}
+
+.forecastSection .forecastDisplay > *{
+  width: auto;
+  height: 120px;
+}
+
+.forecastSection .forecastDisplay .foreCast *{
+  color: white;
+}
+
+.forecastSection .dev{
+  color: white;
+  align-self: center;
+  font-size: .8rem;
+  margin: 1.5rem;
+} 
+
+
+.newUser{
+  background: black;
+}
+
+.newUser .title{
+  margin: 1.5rem;
+  font-size: 1.5rem
+}
+
+.newUser .msg{
+  color: white;
+  text-align: center;
+  display: none/* flex */;
+  flex-direction: inherit;
+}
+
+.newUser .emoji{
+  font-size: 10rem;
+  margin: 2rem;
+}
+
+
+
+.newUser .msg .message{
+  width: 90%;
+  align-self: center
+}
+
+.newUser .msg .proceed{
+  font-size: 3rem;
+  color: white;
+  position: absolute;
+  bottom: 10px;
+  right: 30px;
+}
+
+.newUser .msg1{
+  display: none;
+}
+
+
+	.confirmBar{
+	  position: fixed;
+	  top: 30%;
+	  width: 80%;
+	  min-height: 20%;
+	  background: white;
+	  border-radius: 10px;
+	  flex-direction: column;
+	  align-items: center;
+	  padding: .5rem;
+	  align-self: center;
+	  text-align: center;
+	  border: 2px solid #8CD1EB;
+	  z-index: 5;
+	  align-items: center;
+	  display: none;
+	}
+	
+	
+	
+	.confirmBar .message{
+	  font-size: 1.3rem;
+	  margin-top: 1rem;
+	}
+	
+	.confirmBar .actions{
+	  display: flex;
+	  width: 90%;
+	  margin: .5rem;
+	  margin-top: 1.5rem;
+	  align-self: center;
+	  justify-content: space-around;
+	}
+	
+	.confirmBar .actions *{
+	  width: 45%;
+	  border: none;
+	  border-radius: 15px;
+	  padding: .5rem;
+	  color: white;
+	}
+	
+	.yes{
+	  background: #2DBB6A;
+	}
+	
+	.no{
+	  background: #E605A4;
+	}
+	
+	.blurer{
+	  display: none;
+	  width: 100vw;
+	  height: 100vh;
+	  position: absolute;
+	  z-index: 3;
+	  background: rgba(0,0,0,0.7);
+	  backdrop-filter: blur(5px)
+	}
+
+	
+	
+	.alertBox{
+	  z-index: 20;
+	  min-width: 60%;
+	  max-width: 90%;
+	  text-align: center;
+	  padding: .5rem;
+	  color: white;
+	  background: #1F8CE7;
+	  position: absolute;
+	  align-self: center;
+	  font-size: .9rem;
+	  bottom: -100%;
+	  border-radius: 5px;
+	  animation: null .3s 0s forwards ease-out
+	}
+	
+	@keyframes alert{
+	  from{
+	    bottom: -100%;
+	  }to{
+	    bottom: 5%;
+	  }
+	}
+	
+	
+	.detailDisplay{
+	  background: black;
+	  color: white;
+	  overflow-y: scroll
+	}
+	
+	.detailDisplay .bg{
+	  width: 100%;
+	  height: 30%;
+	}
+	
+  
+  .detailDisplay .weather,.wind,.temp,.location{
+    font-size: 8rem;
+    align-self: center;
+    margin: 2rem;
+    width: 70%;
+    height: 40%;
+    text-align: center;
+  }
+  
+  .temp{
+    font-size: 5rem
+  }
+	
+	.detailDisplay div{
+	  margin-left: 2rem;
+	  margin-top: 1.2rem
+	}
+	
+	.detailDisplay .city,.date,.country{
+	  align-self: center;
+	  font-weight: bold;
+	  margin: 1rem;
+	  font-size: 1.5rem
+	}

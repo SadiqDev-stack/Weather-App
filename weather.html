@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme" content="white">
+  <title>Weather App</title>
+  <link rel="stylesheet" href="weather.css">
+  <link rel="manifest" href="weather.json">
+  <link rel="shortcut icon" type="image/x-icon" href="./images/app_icon.png">
+</head>
+<body>
+  
+  <div class="focusSection section">
+  <input type="search" class="searchBar" placeholder="Type And Search City...">
+   <div class="cityDisplay">City Name</div>
+   <div class="dateDisplay">Date</div>
+   <div class="tempDisplay">0°C</div>
+   <div class="humDisplay">Humidity: 0%</div>
+   <div class="forecastDisplay">
+     <div class="foreCast">
+       <div class="emojiDisplay">⛅</div>
+       <div class="tempDisplay">0°C</div>
+       <div class="forecastDay">Date</div>
+     </div>
+      <div class="foreCast">
+        <div class="emojiDisplay">🌧️</div>
+       <div class="tempDisplay">0°C</div>
+       <div class="forecastDay">Date</div>
+     </div>
+      <div class="foreCast">
+        <div class="emojiDisplay">❓</div>
+       <div class="tempDisplay">0°C</div>
+       <div class="forecastDay small">More Forecast</div>
+     </div> 
+   </div>
+  </div>
+   
+   <div class="locationAccess section">
+     <div class="emojiDisplay">🌍</div>
+     <div class="msg">Please Allow Us To Access Your Location, To Check Your City Name</div>
+     <button class="grant">Grant Permission</button>
+     <div class="skip">Skip >></div>
+   </div>
+   
+   <div class="loadBar">
+     <div class="loader"></div>
+     <div class="loadText">Getting Your City</div>
+   </div>
+   
+   <div class="forecastSection section">
+     <h2>Weather Forecast</h2>
+    <div class="forecastDisplay">
+     </div>
+   <div class="dev">Developed By Sadiq Abubakar</div>
+   </div>
+   
+   <div class="newUser section">
+    <div class="msg">
+     <div class="title">Welcome New User!</div>
+     <div class="emoji">👋</div>
+     <div class="message">Looks Like Your Are New User To This App We Will Like To Introduce You To Our App</div>
+     <div class="proceed">></div>
+   </div>
+    <div class="msg">
+     <div class="title">Developer Of App ?</div>
+     <div class="emoji">👩‍💻</div>
+     <div class="message">This App Was Developed By Sadiq Abubakar When He finished Learning JavaScript To Enhance His experience</div>
+     <div class="proceed">></div>
+   </div>
+    <div class="msg">
+     <div class="title">How To Use!</div>
+     <div class="emoji">🤷</div>
+     <div class="message">First When You Open The App, It Will Ask You To Give Permission, in Other To get Your City Automatically, After It Will Load Your Weather, You Can Also Open Forecast Bar To View Future Weather</div>
+     <div class="proceed">></div>
+   </div>
+   </div>
+   
+   <div class="confirmBar">
+ 	  <div class="message">Are You Sure You Want To Exit This App</div>
+ 	  <div class="actions">
+ 	    <button class="no clickable">No</button>
+ 	    <button class="yes clickable">Yes</button>
+ 	  </div>
+ 	</div>
+   
+   
+   <div class="blurer"></div>
+   
+   </div>
+   
+   <div class="alertBox">Hello Mr Sadiq</div>
+   
+   
+   <div class="detailDisplay section">
+     <img class="bg" src="./images/cloudy_sky.png" alt="">
+     <div class="temp">20°C</div>
+     <div class="hum">Humidity: 50%</div>
+     <img class="wind" src="./images/vein_icon.png" alt="">
+     <div class="pressure">Air Pressure: 10MA </div>
+     <div class="angle">Wind Direction: 20°</div>
+     <div class="weather">🌥️</div>
+     <div class="feel_like">Skin Temperature: 17°C</div>
+     <div class="status">Status: Cool Day</div>
+     <div class="cloud">Cloud Cover: 50%</div>
+     <div class="location">🌍</div>
+     <div class="city">Borno State</div>
+     <div class="date">1 January 2024</div>
+     <div class="country">Africa Nigeria</div>
+   </div>
+   
+   
+   
+   
+   
+   <script src="weather.js"></script>
+</html>
+</body>
+</html>

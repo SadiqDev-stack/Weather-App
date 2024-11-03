@@ -1,0 +1,17 @@
+{
+  "name": "Global Weather App",
+  "short_name": "Weather App",
+  "start_url": "weather.html",
+  "display": "standalone",
+  "background_color": "white",
+  "theme": "white",
+  "icons": [
+    {
+      "src": "./images/app_icon.png",
+      "sizes": "400×400",
+      "type": "image/png"
+    }
+  ],
+  "description": "this app is developed by sadiq Abubakar mainly to get weather of location easily"
+}
+
