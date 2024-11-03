@@ -1,7 +1,7 @@
 {
   "name": "Global Weather App",
   "short_name": "Weather App",
-  "start_url": "weather.html",
+  "start_url": "index.html",
   "display": "standalone",
   "background_color": "white",
   "theme": "white",
