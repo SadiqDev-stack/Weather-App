@@ -329,10 +329,12 @@ const constructVisualiser = data => {
 const focusOn = forecast => {
   if(forecast.main){
   const {temp,humidity} = forecast.main;
-  const {description,icon} = forecast.weather[0];
+  const {description,icon,id} = forecast.weather[0];
+  const [bg,status,emoji] = getIconDetail(forecast.weather[0].id);
+ 
   const [input,cityDisplay,dateDisplay,tempDisplay,humDisplay] = [...focusSection.children];
   cityDisplay.textContent = shorten(forecast.city.state);
-  dateDisplay.textContent = forecast.date;
+  dateDisplay.textContent = `${forecast.date} > ${status} ${emoji}`
   tempDisplay.textContent = toCelsius(temp) + '°C';
   humDisplay.textContent = 'Humidity: ' + humidity + '%';
   document.body.style.backgroundImage = `url(${forecast.bg})`;
@@ -439,10 +441,12 @@ fetch(forecastApi(long,lat))
   updateStorage();
 }).catch(er => {
   load('',false)
-  alertUser('Fail To Get Weather Of ' + shorten(city.state) + ' Error/Bad Connection Occured')
+  alertUser('Fail To Get Weather Of ' + shorten(city.state) + ' Error/Bad Connection Occured');
+  showWeather(appStorage.forecasts)
 })
 }else{
   load('',false);
+  showWeather(appStorage.forecasts)
   alertUser(long == 'invalid' ? 'Invalid City Name Or Today Free Trial Ended' : 'Fail To Get Weather Bad Connection')
 }
 }
@@ -467,6 +471,32 @@ const introduceUser = e => {
   
   introductionPart.forEach(part => part.querySelector('.proceed').onclick = e => proceed());
 }
+
+
+const backCodePosition = (lat,long,callback) => {
+  fetch(backCodeApi(long,lat))
+  .then(response => response.json())
+  .then(data => {
+    if(data.results.length){
+     const { state, country, continent } = data.results[0].components;
+     const formatted = data.results[0].formatted;
+     const { lat, lng } = data.results[0].geometry
+     callback(lng, lat, {
+       state,
+       country,
+       formatted,
+       continent,
+     })
+    }else{
+      callback('invalid');
+    }
+  }).catch(er => {
+    callback('connection');
+  })
+}
+
+
+
 
 if(appStorage.isnewUser){
   newUserSection.style.display = 'flex';
@@ -496,29 +526,6 @@ onpopstate = e => {
   e.preventDefault()
   }
 }
-
-const backCodePosition = (lat,long,callback) => {
-  fetch(backCodeApi(long,lat))
-  .then(response => response.json())
-  .then(data => {
-    if(data.results.length){
-     const { state, country, continent } = data.results[0].components;
-     const formatted = data.results[0].formatted;
-     const { lat, lng } = data.results[0].geometry
-     callback(lng, lat, {
-       state,
-       country,
-       formatted,
-       continent,
-     })
-    }else{
-      callback('invalid')
-    }
-  }).catch(er => {
-    callback('connection');
-  })
-}
-
 
 
 
@@ -552,4 +559,4 @@ moreDisplay.onclick = e => appBars.forward(foreCastSection)
 if('serviceWorker' in navigator){
   navigator.serviceWorker.register('/weather_sw.js')
 }
-})();
+})(); and
