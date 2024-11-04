@@ -1,4 +1,4 @@
-/*
+
 const cacheName = 'Global Weather App';
 const appAssets = [
   'images',
@@ -36,4 +36,4 @@ self.addEventListener('fetch',e => {
      })
     )
 })
-*/
+
