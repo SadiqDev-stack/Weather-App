@@ -1,5 +1,10 @@
 
 (e => {
+const devDetail = {
+  name: 'Sadiq Abubakar',
+  phone: '09131458740'
+}
+	
 const $ = ele => ele.includes('*') ?
 document.querySelectorAll(ele.replace('*',''))
 : document.querySelector(ele);
